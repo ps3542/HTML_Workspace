@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Gallery</title>
+  <style>
+   
+    * {
+      box-sizing: border-box;
+    }
+
+    
+    .responsive {
+      float: left;
+      width: 24.99999%;
+      padding: 0 6px;
+    }
+
+   
+    .gallery {
+      border: 1px solid #ccc;
+    }
+    .gallery:hover {
+      border: 1px solid #777;
+     
+    }
+    .gallery img {
+      display: block;   
+      width: 100%;
+      height: auto;
+    }
+    .desc {
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h2>Image Gallery</h2>
+  <p>Resize the browser window to see the responsive effect:</p>
+
+  <div class="responsive">
+    <div class="gallery">
+      <a target="_blank" href="img/img_aa.jpg">
+        <img src="img/img_aa.jpg" alt="Cinque Terre" />
+      </a>
+      <div class="desc">Add a description of the image here</div>
+    </div>
+  </div>
+
+  <div class="responsive">
+    <div class="gallery">
+      <a target="_blank" href="img/img_ab.jpg">
+        <img src="img/img_ab.jpg" alt="Forest" />
+      </a>
+      <div class="desc">Add a description of the image here</div>
+    </div>
+  </div>
+
+  <div class="responsive">
+    <div class="gallery">
+      <a target="_blank" href="img/img_ac.jpg">
+        <img src="img/img_ac.jpg" alt="Northern Lights" />
+      </a>
+      <div class="desc">Add a description of the image here</div>
+    </div>
+  </div>
+
+  <div class="responsive">
+    <div class="gallery">
+      <a target="_blank" href="img/img_ad.jpg">
+        <img src="img/img_ad.jpg" alt="Mountains" />
+      </a>
+      <div class="desc">Add a description of the image here</div>
+    </div>
+  </div>
+</body>
+</html>
