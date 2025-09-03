@@ -25,13 +25,42 @@
     let classRoom = 204;
     console.log(`${name}님, ${classRoom}호 강의실로 입장하세요.`);
 
-    //배열
+    //배열. 배열의 이름은 레퍼런스(변수)이다.
     let season = ["봄","여름","가을","겨울"];
     console.log(season[0]); //봄
     console.log(season[1]); //여름
     console.log(season[2]); //가을
     console.log(season[3]); //겨울
     
+    let b;  // undefined  
+    console.log(b);
+    season=b;
+    console.log(season);
+    // console.log(season[0]);  에러코드
+
+    let input=prompt("숫자를 입력하세요");  // 입력한 값 10은 input에 저장됨
+    console.log(input*10);
+
+    console.log('20'+10); // 10이 '10'(문자열)로 자동 변환됨. '20'+'10'=='2010'
+
+    // 명시적형변환, 강제형변환.
+    console.log(Boolean(0)); // false
+    console.log(Boolean('')); // false
+    console.log(Boolean("")); // false
+    console.log(Boolean(null)); // false
+    console.log(Boolean(undefined)); // false
+    console.log(Boolean('false')); // true
+    console.log('10'+20); // 30
+
+    console.log(10+20); // 덧셈
+    console.log(10-20); // 뺄셈
+    console.log(10*20); // 곱셈
+    console.log(15%2); // 나눗셈
+    console.log(15%2); // 나누고 남은 나머지 값
+
+    let numberOne=15/2;
+    console.log(nuberOne)
+
   </script>
 </head>
 <body>
