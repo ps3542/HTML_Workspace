@@ -38,8 +38,8 @@
     console.log(season);
     // console.log(season[0]);  에러코드
 
-    let input=prompt("숫자를 입력하세요");  // 입력한 값 10은 input에 저장됨
-    console.log(input*10);
+    // let input=prompt("숫자를 입력하세요");  // 입력한 값 10은 input에 저장됨
+    // console.log(input*10);
 
     console.log('20'+10); // 10이 '10'(문자열)로 자동 변환됨. '20'+'10'=='2010'
 
@@ -59,7 +59,39 @@
     console.log(15%2); // 나누고 남은 나머지 값
 
     let numberOne=15/2;
-    console.log(nuberOne)
+    console.log(numberOne);
+
+    let x = 10;
+    let y = 10;
+    console.log(x++); // x를 먼저 사용해서 출력한 다음 x를 1 증가시킴 > 10
+    console.log(x);; // x는 11이 됨
+    console.log(++y); // y를 먼저 1 증가시킨 후 출력함 > 11
+    console.log(y); // y는 11이 됨
+
+    let m = 10;
+    let n = 20;
+    m+=n;  // m+n을 먼저 계산한 후 m 에 저장
+    console.log(m); // 30
+    m-=n; 
+    console.log(m); // -20
+    m*=n;
+    console.log(m); // 200
+    m/=n;
+    console.log(m); // 0.5
+    m%=n;
+    console.log(m); // 10
+
+    console.log(10>20); // false
+    console.log(10<20); // true
+    console.log(10>=20); // false
+    console.log(20<=20); // true
+    console.log(10==20); // false
+    console.log(10!=20); // true
+    console.log(10==="10"); // flase  값과 데이터형이 모두 같아야 true
+    console.log(10=="10"); // true    값만 같으면 true
+    console.log(10!=="10"); // true   값이 다르거나 데이터형이 다르면 true
+    console.log(10!="10"); // false   값이 다르면 true
+    
 
   </script>
 </head>
