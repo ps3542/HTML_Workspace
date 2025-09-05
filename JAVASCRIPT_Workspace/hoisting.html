@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>호이스팅 연습</title>
+  <script>
+    var x=10;
+    function displayNumber(){
+      console.log(x);
+      console.log(y);
+      var y=20;
+    }
+    displayNumber();
+
+    let x=10;
+    function displayNumber(){
+      console.log(x);
+      console.log(y);
+      let y=20;
+    }
+    displayNumber();
+
+    x=10;
+    function displayNumber(){
+      console.log(x);
+      console.log(y);
+      y=20;
+    }
+    displayNumber();
+    console.log(`y is ${y}`);
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

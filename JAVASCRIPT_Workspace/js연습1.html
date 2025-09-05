@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>javascript연습문제1</title>
+</head>
+<script>
+  // 연습문제 1
+  let userNumber = parseInt(prompt('숫자를 입력하세요.'));
+  if(userNumber % 2 === 0)
+    alert('짝수입니다.');
+  else if(userNumber % 2 === 1)
+    alert('홀수입니다.');
+  else
+    alert('숫자가 아닙니다.');
+  
+  // 연습문제 2
+  let numberOne = parseInt(prompt('점수를 입력하세요.'));
+  let numberTwo = parseInt(prompt('점수를 입력하세요.'));
+  let numberThree = parseInt(prompt('점수를 입력하세요.'));
+  let score = (numberOne+numberTwo+numberThree)/3;
+    alert(score);
+  if(score>=90) alert('A');
+  else if(score>=80) alert('B');
+  else if(score>=70) alert('C'); 
+  else if(score>=60) alert('D');
+  else alert('F');
+  
+  // 연습문제 3 
+  for(let i=1; i<=100; i++){
+    document.write(`${i} `); 
+  } 
+
+  document.write("<br><br>");
+
+
+  // 연습문제 4
+  for(let i=100; i>=1; i--){
+    document.write(`${i} `);
+  }
+
+  // 연습문제 5
+ for(let i=1; i<10; i++){
+  document.write(`<h3>${i}단</h3>`);
+  for(let j=1; j<10; j++){
+    document.write(`${j} x ${i} = ${j*i} &nbsp;&nbsp;`);
+  }
+} 
+
+</script>
+<body>
+  
+</body>
+</html>
