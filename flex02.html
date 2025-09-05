@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS연습 - flex2</title>
+  <style>
+     .container{
+      width: 500px;
+      display: flex;
+      background-color: #eee;
+      border: 1px solid #222;
+      margin-bottom: 30px;
+      height: 100px;
+      
+    }
+      .item{
+      background-color: orange;
+      width: 100px;
+      margin: 5px;
+      text-align: center;
+    }
+    #opt1 {align-items: flex-start;}  /* 교차축 시작점 기준으로 정렬 */
+    #opt2 {align-items: flex-end;}    /* 교차축 끝점 기준으로 정렬 */
+    #opt3 {align-items: center;}      /* 교차축 중앙 기준으로 정렬 */
+    #opt4 {align-items: baseline;}    /* 문자 기준선에 맞춰 정렬 */
+    #opt5 {align-items: stretch;}     /* 항목을 늘려 교차축에 가득 차게 정렬 */
+    #opt6 {align-items: center;}      /* 부모를 기준으로 모든 자식을 정렬 */
+    #opt6>div:nth-child(1){align-self: flex-start;}     /* 예외적으로 몇개만 따로 정렬하고 싶을때 align-self 속성 사용 */
+    #opt6>div:nth-child(3){align-self: stretch;}              
+ 
+   </style>
+</head>
+<body>
+  <div class="container" id="opt1">
+    <div class="item">1</div>
+    <div class="item" style="background-color: green;">2</div>
+    <div class="item">3</div>
+  </div>
+  <div class="container" id="opt2">
+    <div class="item">1</div>
+    <div class="item" style="background-color: green;">2</div>
+    <div class="item">3</div>
+  </div>
+  <div class="container" id="opt3">
+    <div class="item">1</div>
+    <div class="item" style="background-color: green;">2</div>
+    <div class="item">3</div>
+  </div>
+  <div class="container" id="opt4">
+    <div class="item">1</div>
+    <div class="item" style="background-color: green;">2</div>
+    <div class="item" style="font-size: 28px;">3</div>
+    <div class="item" style="font-size: 10px;">4</div>
+  </div>
+   <div class="container" id="opt5">
+    <div class="item">1</div>
+    <div class="item" style="background-color: green;">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+  </div>
+  <div class="container" id="opt6">
+    <div class="item">1</div>
+    <div class="item" style="background-color: green;">2</div>
+    <div class="item">3</div>
+    <div class="item" style="background-color: green;">4</div>
+  </div>
+
+    
+ </body>
+</html>
