@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM연습</title>
+</head>
+<body>
+  <div style="height: 2000px;">box</div>
+  <div class="container">
+    <img src="img/kitty-1.png" alt="cat" id="cat">
+  </div>
+  <div class="container">
+    <img src="img/kitty-1.png" alt="cat" id="cat2">
+  </div>
+
+  <script>
+    let cat = document.getElementById("cat"); // id가 cat인 태그 선택
+    // cat.onclick = () => alert("이미지를 클릭했습니다.");
+    // cat.onclick = function(){
+    //   alert("이미지를 클릭했습니다.");
+    // }
+    // function alertfnc(){
+    //   alert("이미지를 클릭했습니다.");
+    // }
+    // cat.onclick = alertfnc; // 함수이름만 전달, 함수 호출 아님
+
+    // cat.onclick = function(event){
+    //   let x = event.pageX; // 웹문서 기준
+    //   let y = event.pageY;
+    //   console.log(x,y);
+    //   let x2 = event.clientX; // 화면 기준
+    //   let y2 = event.clientY;
+    //   console.log(x2,y2);
+    // }
+
+    cat.onclick = function(event){
+      alert(`이미지 파일 : ${this.src}`)  // this는 이벤트가 발생한 태그를 가리키는 래퍼런스.
+    };
+
+    let cat2 =document.getElementById("cat2");
+    // cat2.addEventListener("mouseover",function(){
+    //   cat2.src = "img/kitty-2.png";
+    // });
+    // cat2.addEventListener("mouseout",function(){
+    //   cat2.src = "img/kitty-1.png";
+    // });
+
+    cat2.addEventListener("mouseover",()=>{
+      cat2.src = "img/kitty-2.png";
+    })
+    cat2.addEventListener("mouseout",()=>{
+      cat2.src = "img/kitty-1.png";
+    })
+
+  </script>
+  
+</body>
+</html>

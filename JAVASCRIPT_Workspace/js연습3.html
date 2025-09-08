@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>js연습3</title>
+  <style>
+    h2 {
+      margin-top: 20px;
+    }
+    .box {
+      width: 100px;
+      height: 100px;
+      background: red;
+      position: relative;
+      transition: all 0.5s;
+    }
+    .move {
+      left: 200px;
+    }
+  </style>
+</head>
+<body>
+  <h2>1. 현재 날짜</h2>
+  <div id="date"></div>
+  <hr>
+
+  <h2>2. 1~20 난수</h2>
+  <div id="random"></div>
+  <hr>
+
+  <h2>3. 구글 이동</h2>
+  <button onclick="location.href='https:www.google.com'">구글 이동</button>
+  <hr>
+
+  <h2>4. 배열 (1~5)</h2>
+  <div id="array1"></div>
+  <hr>
+
+  <h2>5. 배열 (6~10 추가 후)</h2>
+  <div id="array2"></div>
+  <hr>
+
+  <h2>6. CSV</h2>
+  <div id="csv"></div>
+  <hr>
+
+  <h2>7. Instance</h2>
+  <pre>
+<b>instance(인스턴스)는 클래스라는 설계도를 기반으로
+생성된 실제 객체를 말합니다.
+
+let s1 = new Student("홍길동"); // s1이 Student의 인스턴스</b>
+  </pre>
+  <hr>
+
+  <h2>8. 박스 이동</h2>
+  <div class="box"></div>
+  <button id="moveBtn">박스 이동</button>
+
+  <script>
+    // 1. 현재 날짜
+    let today = new Date();
+    let year = today.getFullYear();
+    let month = String(today.getMonth() + 1).padStart(2, '0');
+    let day = String(today.getDate()).padStart(2, '0');
+    document.getElementById("date").textContent = `${year}-${month}-${day}`;
+
+    // 2. 난수
+    let rand = Math.floor(Math.random() * 20) + 1;
+    document.getElementById("random").textContent = rand;
+
+    // 4. 배열 1~5
+    let arr = [1, 2, 3, 4, 5];
+    document.getElementById("array1").textContent = arr.join(", ");
+
+    // 5. 배열에 6~10 추가
+    arr.push(6, 7, 8, 9, 10);
+    document.getElementById("array2").textContent = arr.join(", ");
+
+    // 6. CSV
+    let student = ["이상숭", "경찰학과", "3학년"];
+    let csv = student.join(",");
+    document.getElementById("csv").textContent = csv;
+
+    // 8. 박스 이동 이벤트
+    document.getElementById("moveBtn").addEventListener("click", function(){
+      document.querySelector(".box").classList.add("move");
+    });
+  </script>
+</body>
+</html>

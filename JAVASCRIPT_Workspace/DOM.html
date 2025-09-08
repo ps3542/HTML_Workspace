@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM연습</title>
+
+</head>
+<body>
+  <div id="content">
+    DOM
+  </div>
+
+  <div class="content">
+    DOM
+  </div>
+  
+  <div class="content">
+    DOM
+  </div>
+  <p>DOM</p>
+  <p>DOM</p>
+
+  <div id="content2">
+    <ul>
+      <li>DOM</li>
+      <li>DOM</li>
+    </ul>
+  </div>
+<script>
+  console.log(document.getElementById("content")); // id가 content인 태그가 로딩된 후 실행해야 함.
+  let div=document.getElementById("content");
+  div.style.color="red";
+  div.style.backgroundColor="yellow";
+
+  console.log(document.getElementsByClassName("content")); // class가 content인 태그가 로딩된 후 실행해야 함.
+  let divs=document.getElementsByClassName("content");
+  for(let i=0; i<divs.length; i++){
+    divs[i].style.color="blue";
+    divs[i].style.backgroundColor="pink";
+  }
+
+  console.log(document.getElementsByTagName('p'));
+  let ps=document.getElementsByTagName('p');
+  for(let i=0; i<ps.length; i++){
+    ps[i].style.color="green";
+    ps[i].style.backgroundColor="lightgray";
+  }
+
+  console.log(document.querySelectorAll("#content2 ul li")); // CSS 선택자 방식 
+  console.log(document.querySelector("#content2 ul li")); // CSS 선택자 방식  (처음 하나만 선택)
+  let lis=document.querySelectorAll("#content2 ul li");
+  for(let i=0; i<lis.length; i++){
+    lis[i].style.color="purple";
+    lis[i].style.backgroundColor="lightgreen";
+  }
+</script>
+</body>
+</html>

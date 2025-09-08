@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM</title>
+</head>
+<body>
+  <button id="btn">추가</button>
+  <button id="btn2">삭제</button>
+  <ul id="itemList"></ul>
+  
+  <script>
+      let btn = document.getElementById("btn");
+      btn.addEventListener("click", function(){
+      let li=document.createElement("li"); // li 태그 생성
+      let textNode = document.createTextNode("javascript") // 텍스트 노드 생성
+      li.appendChild(textNode); // li 태그에 텍스트 노드 추가
+      let itemList = document.getElementById("itemList"); // ul 태그
+      itemList.appendChild(li); // ul 태그에 li 태그 추가
+    });
+
+    let btn2 = document.getElementById("btn2");
+    btn2.addEventListener("click", function(){
+      let itemList = document.getElementById("itemList");
+      itemList.removeChild(itemList.lastChild); // 마지막 자식 태그 삭제
+    });
+  </script>
+</body>
+</html>
