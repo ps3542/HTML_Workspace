@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery 연습문제</title>
+  <style>
+    /* 연습문제 2 */
+    #pic4{
+      position: relative;
+    }
+    /* 연습문제 3 */
+    .accordion {
+      cursor: pointer;
+      padding: 10px;
+      border: 1px solid #ccc;
+      margin-top: 5px;
+      background-color: #f1f1f1;
+    }
+    .panel {
+      display: none;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+    /* 연습문제 4 */
+     a{ text-decoration:none; color:white; }
+     .hot-topic-container {
+      display:flex;
+      gap:20px;
+    }
+    .hot-topic-box {
+      position:relative;
+      width:300px;
+      height:200px;
+      overflow:hidden;
+      cursor:pointer;
+    }
+    .hot-topic-box img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+    .default-view {
+      position:absolute;
+      bottom:0;
+      left:0;
+      width:100%;
+      background:rgba(0,0,0,0.5);
+      color:#fff;
+      padding:8px;
+      font-size:14px;
+    }
+    .overlay-view {
+      display:none; /* jQuery가 토글 */
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.6); /* ✅ 불투명도 조정 */
+      padding:15px;
+      box-sizing:border-box;
+      color:#fff; /* overlay 안 글씨는 흰색 */
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <script>
+    // 배경색 바꾸기
+    $(document).ready(function(){
+      $("#btn1").click(function(){
+        $("body").css("background-color", "green");
+      });
+    // 이미지 이동
+      $("#btn2").click(function(){
+        $("#pic4").animate({left: '250px'}, "slow");
+      });
+
+    // 아코디언 메뉴
+      $('.accordion').click(function(){
+      // 클릭한 섹션의 panel 토글
+       $(this).next('.panel').slideToggle(300);
+      // 나머지 panel은 닫기
+        $('.panel').not($(this).next()).slideUp(300);
+     });
+    // 네이버 핫토픽 박스
+    $(function(){
+      $(".hot-topic-box").hover(
+        function(){ // mouseenter
+          $(this).find(".default-text").stop(true,true).fadeOut(200); // 글자만 숨김
+          $(this).find(".overlay-view")
+            .stop(true, true)
+            .css({ top:"20px", opacity:0 })
+            .show()
+            .animate({ top:"0", opacity:1 }, 300);
+        },
+        function(){ // mouseleave
+          $(this).find(".overlay-view")
+            .stop(true, true)
+            .animate({ top:"20px", opacity:0 }, 300, function(){
+              $(this).hide();
+            });
+          $(this).find(".default-text").stop(true,true).fadeIn(200); // 글자만 다시 표시
+        }
+      );
+    });
+   });
+  </script>
+</head>
+<body>
+  <div>
+  1. 버튼을 누르면 웹페이지 배경 녹색으로 변경
+  <button id="btn1">버튼</button>
+  </div>
+  <br><br>  
+  <div>
+  2. 버튼을 누르면 이미지가 오른쪽으로 이동 
+  <button id="btn2">버튼</button>
+  <br><br> 
+  <img id="pic4" src="img/pic4.png" alt="img">
+  </div>
+  <div>
+  <br><br>
+  3. 아코디언 메뉴 구현하기 <br><br>
+  <div class="accordion">제목</div>
+    <div class="panel">내용</div>
+
+    <div class="accordion">제목</div>
+    <div class="panel">내용</div>
+
+    <div class="accordion">제목</div>
+    <div class="panel">내용</div>
+  </div>
+  <div>
+  <br><br>
+  4. 네이버 핫토픽 박스 만들기 <br><br>
+  <div class="hot-topic-container">
+    <div class="hot-topic-box">
+      <img src="img/pic1.jpg" alt="고양이1">      
+      <div class="default-view">
+       <span class="default-text">1번 고양이</span>
+      </div>
+      <div class="overlay-view">
+        <h3>1번 고양이</h3>
+        <p>1번 고양이는 귀여워</p>
+        <a href="#">바로가기</a>
+      </div>
+    </div>
+    <div class="hot-topic-box">
+      <img src="img/pic2.jpg" alt="고양이2">
+      <div class="default-view">
+        <span class="default-text">2번 고양이</span>
+      </div>
+      <div class="overlay-view">
+        <h3>2번 고양이</h3>
+        <p>2번 고양이는 귀여워</p>
+        <a href="#">바로가기</a>
+      </div>
+    </div>
+    <div class="hot-topic-box">
+      <img src="img/pic3.jpg" alt="고양이3">
+      <div class="default-view">
+        <span class="default-text">3번 고양이</span>
+      </div>
+      <div class="overlay-view">
+        <h3>3번 고양이</h3>
+        <p>3번 고양이는 귀여워</p>
+        <a href="#">바로가기</a>
+    </div>
+   </div>
+  </div>
+  </div>
+
+
+</body>
+</html>

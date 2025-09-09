@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>animate연습</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("button").click(function(){
+        // $("div").animate({height: '300px', opacity: '0.4'}, "slow");
+        // $("div").animate({width: '300px', opacity: '0.8'}, "slow");
+        // $("div").animate({height: '100px', opacity: '0.4'}, "slow");
+        // $("div").animate({width: '100px', opacity: '0.8'}, "slow");
+
+        // chainning. 메서드가 연속적으로 호출됨. animate()함수 종류후 div의 reference가 반환됨.
+        $("div").animate({height: '300px', opacity: '0.4'}, "slow")
+                .animate({width: '300px', opacity: '0.8'}, "slow")
+                .animate({height: '100px', opacity: '0.4'}, "slow")
+                .animate({width: '100px', opacity: '0.8'}, "slow");                
+      });
+        $("#stop1").click(function(){
+          // 현재 진행중인 애니메이션 종료, 현재 진행중인 애니메이션의 마지막 장면으로 이동 안함.
+          $("div").stop(); // stop all : false, go to end : false
+        });
+
+        $("#stop2").click(function(){
+          // 모든 애니메이션 종료, 현재 진행중인 애니메이션의 마지막 장면으로 이동 안함.
+          $("div").stop(true,false); // stop all : true, go to end : false
+        });
+        $("#stop3").click(function(){
+          // 모든 애니메이션 종료, 현재 진행중인 애니메이션의 마지막 장면으로 이동 함.
+          $("div").stop(true,true); // stop all : true, go to end : true
+        });
+        $("#stop4").click(function(){
+          // 현재 진행중인 애니메이션 종료, 현재 진행중인 애니메이션의 마지막 장면으로 이동 함.
+          $("div").stop(false,true); // stop all : false, go to end : true
+        });
+        $("#stop5").click(function(){
+          // 현재 진행중인 애니메이션 종료, 현재 진행중인 애니메이션의 마지막 장면으로 이동 안함.
+          $("div").stop(false,false); // stop all : false, go to end : false
+        });
+
+    
+    });
+
+
+  </script>
+</head>
+<body>
+  <button>animate()</button>
+  <button id="stop1">stop()</button>
+  <button id="stop2">stop(true,false)</button>
+  <button id="stop3">stop(true,true)</button>
+  <button id="stop4">stop(false,true)</button>
+  <!-- 기본값 -->
+  <button id="stop5">stop(false,false)</button>
+  
+  <div style="width: 150px; height: 150px; background-color: red;"></div>
+
+</body>
+</html>

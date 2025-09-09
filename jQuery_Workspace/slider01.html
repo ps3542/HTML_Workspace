@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>slider 연습</title>
+    <style>
+      .animation-canvas  {
+        overflow:hidden;
+        position:relative;           
+        width:600px; height:400px;
+        }
+      /* Slider Panel */
+      .slider-panel { width:3000px; position:relative; }
+      .slider-image { float:left; width:600px; height:400px; }
+      /* Control Panel */
+      .control-panel  {
+        position:absolute; 
+        bottom:10px;; 
+        left:270px;
+        overflow:hidden; 
+        color:rgb(250, 153, 234);
+      }
+      .dot{
+        font-size:30px;
+        cursor:pointer;
+      }
+    </style>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script>
+        $(document).ready(function () {
+            // 슬라이더를 움직여주는 함수
+            function moveSlider(index){
+                var willMoveLeft = -(index * 600);
+                $('.slider-panel').animate({ left: willMoveLeft }, 'slow');};
+                $(".dot").click(function(){
+                moveSlider($(this).index());    // $(this).index()는 click event가 발생한 dot의 index를 반환
+            });
+        });
+   </script>
+</head>
+<body>
+  <div class="animation-canvas">
+    <div class="slider-panel">
+        <img src="img/pic1.jpg" class="slider-image"/>
+        <img src="img/pic2.jpg" class="slider-image"/>
+        <img src="img/pic3.jpg" class="slider-image"/>
+        <img src="img/pic4.png" class="slider-image"/>
+        <img src="img/pic5.png" class="slider-image"/>
+    </div>
+
+    
+
+    <div class="control-panel" style="text-align:center">
+      <span class="dot">*</span> 
+      <span class="dot">*</span> 
+      <span class="dot">*</span> 
+      <span class="dot">*</span>
+      <span class="dot">*</span>
+    </div>
+
+  </div>
+</body>
+</html>
