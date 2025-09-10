@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery 연습문제</title>
+<style>
+.ancestors div, .ancestors ul, .ancestors li, .ancestors span { 
+  display: block;
+  border: 2px solid lightgrey;
+  color: lightgrey;
+  padding: 5px;
+  margin: 15px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  // span태그의 부모들 중에서 div 아래단계까지만 선택하여 css적용, div는 제외
+  $("span").parentsUntil("div").css({"color": "red", "border": "2px solid red"});
+  // span태그의 부모만 선택. 할아버지, 증조할아버지는 선택 안함.
+  // $("span").parent().css({"color": "red", "border": "2px solid blue"});
+  // // span태그의 모든 조상 선택. body까지 모두 선택됨.
+  // $("span").parents().css({"color": "red", "border": "2px solid blue"});
+});
+</script>
+</head>
+
+<body class="ancestors"> body (great-great-grandparent)
+  <div style="width:500px;">div (great-grandparent)
+    <ul>ul (grandparent)  
+      <li>li (direct parent)
+        <span>span</span>
+      </li>
+    </ul>   
+  </div>
+</body>
+
+</html>

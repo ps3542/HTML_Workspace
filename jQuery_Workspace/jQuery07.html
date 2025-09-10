@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery07</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+  .descendants * { 
+    display: block;
+    border: 2px solid lightgrey;
+    color: lightgrey;
+    padding: 5px;
+    margin: 15px;
+  }
+  </style>
+<script>
+$(document).ready(function(){
+  // div태그의 자손들 중에서 span태그만 선택하여 css적용
+  $("div").find("span").css({"color": "red", "border": "2px solid red"});
+  // div태그의 형제 태그들 중 바로 다음 태그 찾아서 적용
+  $("div").next().css({"color": "blue", "border": "2px solid blue"});
+  // div태그의 모든 다음 형제 태그들 찾아서 적용
+  $("div").nextAll().css({"font-size": "20px"});
+  // div태그의 형제 태그들 중 바로 이전 태그 찾아서 적용
+  $("div").prev().css({"color": "orange", "border": "2px solid orange"});
+  //  div태그의 모든 이전 형제 태그들 찾아서 적용
+  $("div").prevAll().css({"font-size": "20px"});
+});
+</script>
+</head>
+<body>
+  <ul>
+    <li>first</li>
+    <li>second</li>
+    <li>third</li>
+  </ul>
+
+  <ul>
+    <li>first</li>
+    <li>second</li>
+    <li>third</li>
+  </ul>
+
+<div class="descendants" style="width:500px;">div (current element) 
+  <p>p (child)
+    <span>span (grandchild)</span>   
+  </p>
+  <p>p (child)
+    <span>span (grandchild)</span>
+  </p> 
+</div>
+
+<span>another span</span>
+<span>another span</span>
+
+</body>
+</html>

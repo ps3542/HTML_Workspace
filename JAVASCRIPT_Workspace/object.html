@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object</title>
+</head>
+  <script>
+    // 객체 생성
+    // let person = {}; : 빈 객체
+    // { 속성명:값, 속성명:값, ...}
+
+    let student = {
+      name:"홍길동",
+      age:20,
+      subject:["컴퓨터공학과","심리학과"]
+    };
+    console.log(student.name);
+    console.log(student.age);
+    for(let i=0; i<student.subject.length; i++){ 
+      console.log(student.subject[i]);
+    }
+
+    let student2 = {
+      name:"이순신",
+      age:25,
+      subject:["소프트웨어공학과"]
+    };
+    
+    let engineering = [student, student2]
+    for(let i=0; i<engineering.length; i++){
+      console.log(engineering[i].name);
+      console.log(engineering[i].age);
+      for(let j=0; j<engineering[i].subject.length; j++){
+        console.log(engineering[i].subject[j]);
+      };
+    };
+  
+  </script>
+<body>
+  
+</body>
+</html>
