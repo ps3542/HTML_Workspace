@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>slider 연습</title>
+  <title>jQuery연습문제2</title>
   <style>
     .animation-canvas {
       overflow:hidden;
@@ -24,7 +24,7 @@
       bottom:10px;
       left:50%;
       transform:translateX(-50%);
-      color:rgb(250, 153, 234);
+      color:rgb(4, 0, 252);
       z-index:500; /* 🔥 도트도 앞으로 */
     }
     .dot {
@@ -54,7 +54,18 @@
   </style>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script>
-    $(document).ready(function () {
+    // 연습문제 1
+    $(document).ready(function(){
+      $.getJSON("https://www.data.go.kr/catalog/15029361/fileData.json", function(data){ // JSON 데이터 가져오기
+        // name과 description 추출
+        let name = data.name;
+        let description = data.description;
+
+        // 화면에 출력
+        $("#output").append("<p>" + name + "</p>"); 
+        $("#output").append("<p>" + description + "</p>");
+      })
+      // 연습문제 2
       let currentIndex = 0;
       let $images = $(".slider-image");
       let totalSlides = $images.length;
@@ -95,9 +106,14 @@
       // 초기 상태
       updateDots();
     });
+
   </script>
 </head>
 <body>
+  <!-- 연습문제 1 -->
+  <div id="output"></div>
+  <!-- /연습문제1 -->
+  <!-- 연습문제2 -->
   <div class="animation-canvas">
     <!-- 화살표 -->
     <span class="arrow prev">&#10094;</span>
@@ -121,5 +137,7 @@
       <span class="dot">*</span>
     </div>
   </div>
+  <!-- /연습문제2 -->
+   
 </body>
 </html>

@@ -1,64 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>slider 연습</title>
-    <style>
-      .animation-canvas  {
-        overflow:hidden;
-        position:relative;           
-        width:600px; height:400px;
-        }
-      /* Slider Panel */
-      .slider-panel { width:3000px; position:relative; }
-      .slider-image { float:left; width:600px; height:400px; }
-      /* Control Panel */
-      .control-panel  {
-        position:absolute; 
-        bottom:10px;; 
-        left:270px;
-        overflow:hidden; 
-        color:rgb(250, 153, 234);
+  <style>
+    .animation-canvas {
+      overflow:hidden;
+      position:relative;
+      width:600px; height:400px;
+    }
+    .slider-panel { 
+      position:relative; 
+      left:0; 
+    }
+    .slider-image { 
+      float:left; 
+      width:600px; 
+      height:400px; 
+    }
+
+    /* 도트 패널 */
+    .control-panel {
+      position:absolute; 
+      bottom:10px;
+      left:50%;
+      transform:translateX(-50%);
+      color:rgb(13, 55, 194);
+      z-index:500;
+    }
+    .dot {
+      font-size:30px;
+      cursor:pointer;
+      margin:0 5px;
+      opacity:0.5;
+    }
+    .dot.active { opacity:1; }
+
+    /* 순수 Font Awesome 화살표 */
+    .arrow {
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      font-size:50px;
+      color:rgb(13, 55, 194);
+      cursor:pointer;
+      z-index:1000;
+      user-select:none;
+    }
+    .prev { left:10px; }
+    .next { right:10px; }
+  </style>
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <!-- Font Awesome 무료 CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <script>
+    $(document).ready(function () {
+      let currentIndex = 0;
+      let $images = $(".slider-image");
+      let totalSlides = $images.length;
+      let slideWidth = 600;
+
+      $(".slider-panel").css("width", totalSlides * slideWidth);
+
+      function moveSlider(index){
+        let willMoveLeft = -(index * slideWidth);
+        $(".slider-panel").stop().animate({ left: willMoveLeft }, 'slow');
+        currentIndex = index;
+        updateDots();
       }
-      .dot{
-        font-size:30px;
-        cursor:pointer;
+
+      function updateDots(){
+        $(".dot").removeClass("active").eq(currentIndex).addClass("active");
       }
-    </style>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-   <script>
-        $(document).ready(function () {
-            // 슬라이더를 움직여주는 함수
-            function moveSlider(index){
-                var willMoveLeft = -(index * 600);
-                $('.slider-panel').animate({ left: willMoveLeft }, 'slow');};
-                $(".dot").click(function(){
-                moveSlider($(this).index());    // $(this).index()는 click event가 발생한 dot의 index를 반환
-            });
-        });
-   </script>
+
+      $(".dot").click(function(){
+        let idx = $(".dot").index(this);
+        moveSlider(idx);
+      });
+
+      $(".prev").click(function(){
+        let idx = (currentIndex - 1 + totalSlides) % totalSlides;
+        moveSlider(idx);
+      });
+
+      $(".next").click(function(){
+        let idx = (currentIndex + 1) % totalSlides;
+        moveSlider(idx);
+      });
+
+      updateDots();
+    });
+  </script>
 </head>
 <body>
   <div class="animation-canvas">
+    <!-- 순수 Font Awesome 화살표 -->
+    <span class="arrow prev"><i class="fa-solid fa-chevron-left"></i></span>
+    <span class="arrow next"><i class="fa-solid fa-chevron-right"></i></span>
+
+    <!-- 슬라이더 -->
     <div class="slider-panel">
-        <img src="img/pic1.jpg" class="slider-image"/>
-        <img src="img/pic2.jpg" class="slider-image"/>
-        <img src="img/pic3.jpg" class="slider-image"/>
-        <img src="img/pic4.png" class="slider-image"/>
-        <img src="img/pic5.png" class="slider-image"/>
+      <img src="img/pic1.jpg" class="slider-image"/>
+      <img src="img/pic2.jpg" class="slider-image"/>
+      <img src="img/pic3.jpg" class="slider-image"/>
+      <img src="img/pic4.png" class="slider-image"/>
+      <img src="img/pic5.png" class="slider-image"/>
     </div>
 
-    
-
-    <div class="control-panel" style="text-align:center">
-      <span class="dot">*</span> 
-      <span class="dot">*</span> 
-      <span class="dot">*</span> 
+    <!-- 도트 -->
+    <div class="control-panel">
+      <span class="dot">*</span>
+      <span class="dot">*</span>
+      <span class="dot">*</span>
       <span class="dot">*</span>
       <span class="dot">*</span>
     </div>
-
   </div>
 </body>
 </html>
