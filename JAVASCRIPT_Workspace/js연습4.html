@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>JS 연습문제</title>
+</head>
+<body>
+<script>
+// 1. ID 길이 구하기
+let id = "hongkildong";
+console.log("1. ID 길이:", id.length);
+
+// 2. 주민등록번호에서 생년월일 추출
+let jumin = prompt("2번) 주민등록번호를 입력하세요 (예: 990101-1234567)");
+let birth = jumin.substring(0, 6);
+console.log("2. 생년월일:", birth);
+
+// 3. 전화번호 '-' 기준 분리
+let phone1 = prompt("3번) 전화번호를 입력하세요 (예: 010-1234-5678)");
+let phoneParts = phone1.split('-');
+console.log("3. 전화번호 분리:", phoneParts);
+
+// 4. 전화번호 '-' 제거
+let phone2 = prompt("4번) 전화번호를 입력하세요 (예: 010-1234-5678)");
+let cleanPhone = phone2.replace(/-/g, "");
+console.log("4. '-' 제거 후:", cleanPhone);
+
+// 5. 소나타 객체 생성 및 출력
+let 소나타 = { 색상: "검정", 가격: 30000000, 년식: 2020 };
+console.log("5. 소나타 객체:", 소나타);
+
+// 6. 국어, 영어, 수학 평균 구하기
+function 평균점수(국어, 영어, 수학) {
+  return (국어 + 영어 + 수학) / 3;
+}
+let kor = Number(prompt("6번) 국어 점수를 입력하세요"));
+let eng = Number(prompt("6번) 영어 점수를 입력하세요"));
+let math = Number(prompt("6번) 수학 점수를 입력하세요"));
+alert("6. 평균 점수: " + 평균점수(kor, eng, math));
+
+// 7. ID 길이 체크
+function 체크ID(userId) {
+  if (userId.length >= 8 && userId.length <= 12) {
+    return "적절합니다.";
+  } else {
+    return "적절하지 않습니다.";
+  }
+}
+let userId = prompt("7번) ID를 입력하세요 (8~12자 이내)");
+alert("7. ID 체크 결과: " + 체크ID(userId));
+
+// 8. 이메일 체크
+function 체크이메일(email) {
+  if (email.includes("@")) {
+    return "올바른 이메일입니다.";
+  } else {
+    return "잘못된 이메일입니다.";
+  }
+}
+let email = prompt("8번) 이메일을 입력하세요");
+alert("8. 이메일 체크 결과: " + 체크이메일(email));
+</script>
+</body>
+</html>
