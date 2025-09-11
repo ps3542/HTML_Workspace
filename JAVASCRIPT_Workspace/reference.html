@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>reference</title>
+  <script>
+    // reference(참조)변수 : 어떤 객체를 참조하는(가리키는) 변수
+    // reference변수에는 reference값이 들어있음. reference값을 이용해서 데이터를 찾을 수 있음
+    // c언어의 pointer와 같은 역할.
+    // pointer는 사용하기 불편해서 보다 편하게 사용하기 위해 reference를 만듬/
+
+    // 배열의 이름은 reference
+    let hobby = ["독서","운동"];
+    let hobby2 = hobby;
+    console.log(hobby2[0]);
+    hobby2[0] = "수영";
+    console.log(hobby2[0]);
+    console.log(hobby[0]);
+
+
+    // 숫자의 이름은 reference
+    let age = 20;
+    
+    // 객체의 이름은 reference
+    let student = {name:"홍길동", age:20};
+    let sudent2 = student;
+    console.log(student2.name);
+    student2.name = "김길동";
+    console.log(student2.name);
+    console.log(student.name);
+  
+
+    // 문자열의 이름은 reference이다
+    let name = "박문수"
+    let name2 = name; // "박문수"문자열을 새롭게 만들어서 name2에 넣는다.
+    console.log(name2);
+    name2 = "김문수";
+    console.log(name2);
+    console.log(name);
+
+    let name3 = new String("이순신");
+    let name4 = name3;
+    console.log(name4);
+    name4 = new String("김순신");
+    console.log(name4);
+    console.log(name3);
+
+    let name5 = "왕건";
+    let name6 = "왕건";
+    name6 = "이황";
+    console.log(name6);
+    console.log(name5); 
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
